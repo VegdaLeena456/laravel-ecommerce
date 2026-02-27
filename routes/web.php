@@ -19,7 +19,7 @@ Route::get('/admin', function () {
     return redirect('/admin/login');
 });
 
-// ------------------------------- Admin Routes---------------------------------// 
+// --------------------------------- Admin Routes---------------------------------// 
 
 // Admin Login
 Route::prefix('admin')->group(function () {
@@ -49,22 +49,26 @@ Route::prefix('admin')->middleware('admin')->group(function () {
     Route::delete('coupon/{id}/delete', [AdminCouponController::class, 'delete'])->name('admin.coupon.delete');
 });
 
-// --------------------------------- Customer Routes---------------------------------// 
+// --------------------------------- Customer Routes ---------------------------------// 
 
-// Login / Registration
-Route::get('login', [CustomerAuthController::class, 'loginPage'])->name('login');
-Route::post('login/store', [CustomerAuthController::class, 'login'])->name('login.store');
+// Registration
 Route::get('registration', [CustomerAuthController::class, 'registrationPage'])->name('registration');
 Route::post('registration/store', [CustomerAuthController::class, 'registration'])->name('registration.store');
+
+// Verify OTP
 Route::get('verify', [CustomerAuthController::class, 'verify'])->name('verify');
 Route::post('verify/otp', [CustomerAuthController::class, 'verifyOtp'])->name('verify-otp');
 Route::post('verify/resendotp', [CustomerAuthController::class, 'resendOtp'])->name('resendOtp');
+
+// Login
+Route::get('login', [CustomerAuthController::class, 'loginPage'])->name('login');
+Route::post('login/store', [CustomerAuthController::class, 'login'])->name('login.store');
 
 // Customer Product Page
 Route::get('products', [CustomerProductController::class, 'productList'])->name('product-list');
 Route::get('products/{id}/details', [CustomerProductController::class, 'productDetails'])->name('products.details');
 
-//  Cart Page 
+// Cart Page 
 Route::get('cart', [CartController::class, 'cart'])->name('cart');
 Route::post('add-to-cart/{id}', [CartController::class, 'addToCart'])->name('add-to-cart');
 Route::get('cart-remove/{id}', [CartController::class, 'delete'])->name('cart.remove');
