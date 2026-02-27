@@ -42,7 +42,7 @@
                                 @endphp
 
                                 <!----- Favorite and Details Icon ----->
-                                <form action="{{ route('add_to_favorite', $product->id) }}" method="POST">
+                                <form action="{{ route('favorite.add', $product->id) }}" method="POST">
                                     @csrf
                                     <button type="submit" class="p-4" style="border:none; background:none;">
                                         @if ($isFavorite)

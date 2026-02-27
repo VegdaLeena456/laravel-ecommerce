@@ -6,7 +6,7 @@ use App\Models\Product;
 
 class FavoriteController extends Controller
 {
-    public function store($id)
+    public function add($id)
     {
         $product = Product::findOrFail($id);
         $favorite = session()->get('favorite', []);

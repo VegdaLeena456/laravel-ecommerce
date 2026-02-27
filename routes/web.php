@@ -1,12 +1,12 @@
 <?php
 
 use App\Http\Controllers\AdminAuthController;
+use App\Http\Controllers\AdminCouponController;
 use App\Http\Controllers\AdminProductController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
-use App\Http\Controllers\AdminCouponController;
-use App\Http\Controllers\CustomerProductController;
 use App\Http\Controllers\CustomerAuthController;
+use App\Http\Controllers\CustomerProductController;
 use App\Http\Controllers\CustomerProfileController;
 use App\Http\Controllers\FavoriteController;
 use Illuminate\Support\Facades\Route;
@@ -19,7 +19,7 @@ Route::get('/admin', function () {
     return redirect('/admin/login');
 });
 
-// --------------------------------- Admin Routes---------------------------------// 
+// --------------------------------- Admin Routes---------------------------------//
 
 // Admin Login
 Route::prefix('admin')->group(function () {
@@ -31,7 +31,7 @@ Route::prefix('admin')->group(function () {
 Route::prefix('admin')->middleware('admin')->group(function () {
     Route::post('logout', [AdminAuthController::class, 'adminLogout'])->name('admin.logout');
 
-    //Admin Product 
+    // Admin Product
     Route::get('products', [AdminProductController::class, 'index'])->name('admin.products');
     Route::get('product/{id}/detail', [AdminProductController::class, 'show'])->name('admin.product.details');
     Route::get('product/create', [AdminProductController::class, 'create'])->name('admin.product.create');
@@ -40,7 +40,7 @@ Route::prefix('admin')->middleware('admin')->group(function () {
     Route::get('product/{id}/edit', [AdminProductController::class, 'edit'])->name('admin.product.edit');
     Route::delete('product/{id}/delete', [AdminProductController::class, 'delete'])->name('admin.product.delete');
 
-    // Admin Coupon Page 
+    // Admin Coupon Page
     Route::get('coupon', [AdminCouponController::class, 'coupons'])->name('admin.coupons');
     Route::get('coupon/add', [AdminCouponController::class, 'add'])->name('admin.coupon.add');
     Route::post('coupon/store', [AdminCouponController::class, 'store'])->name('admin.coupon.store');
@@ -49,7 +49,7 @@ Route::prefix('admin')->middleware('admin')->group(function () {
     Route::delete('coupon/{id}/delete', [AdminCouponController::class, 'delete'])->name('admin.coupon.delete');
 });
 
-// --------------------------------- Customer Routes ---------------------------------// 
+// --------------------------------- Customer Routes ---------------------------------//
 
 // Registration
 Route::get('registration', [CustomerAuthController::class, 'registrationPage'])->name('registration');
@@ -68,11 +68,15 @@ Route::post('login/store', [CustomerAuthController::class, 'login'])->name('logi
 Route::get('products', [CustomerProductController::class, 'productList'])->name('product-list');
 Route::get('products/{id}/details', [CustomerProductController::class, 'productDetails'])->name('products.details');
 
-// Cart Page 
+// Cart Page
 Route::get('cart', [CartController::class, 'cart'])->name('cart');
 Route::post('add-to-cart/{id}', [CartController::class, 'addToCart'])->name('add-to-cart');
 Route::get('cart-remove/{id}', [CartController::class, 'delete'])->name('cart.remove');
 Route::post('cart-update/{id}', [CartController::class, 'update'])->name('cart.update');
+
+// ----------------------------- Favorite Page ---------------------------------//
+Route::post('add-to-favorite/{id}', [FavoriteController::class, 'add'])->name('favorite.add');
+Route::get('favorite-remove/{id}', [FavoriteController::class, 'delete'])->name('favorite.delete');
 
 // Logged in Customer
 Route::middleware('auth')->group(function () {
@@ -83,11 +87,7 @@ Route::middleware('auth')->group(function () {
     Route::get('profile/edit', [CustomerProfileController::class, 'edit'])->name('profile.edit');
     Route::post('profile/update', [CustomerProfileController::class, 'update'])->name('profile.update');
 
-    // ----------------------------- Favorite Page ---------------------------------//
-    Route::post('add-to-favorite/{id}', [FavoriteController::class, 'add'])->name('favorite.add');
-    Route::get('favorite-remove/{id}', [FavoriteController::class, 'delete'])->name('favorite.delete');
-
-     // ----------------------------- Checkout Page ---------------------------------//
+    // ----------------------------- Checkout Page ---------------------------------//
     Route::get('checkout', [CheckoutController::class, 'checkout'])->name('checkout');
     Route::post('checkout/place-order', [CheckoutController::class, 'placeOrder'])->name('place-order');
 

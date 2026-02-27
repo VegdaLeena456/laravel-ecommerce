@@ -173,7 +173,7 @@
                                     @if (isset($favorite) && count($favorite) > 0)
                                         @foreach ($favorite as $id => $item)
                                             <div class="card mb-3 position-relative">
-                                                <a href="{{ route('favorite.remove', $id) }}" class="position-absolute"
+                                                <a href="{{ route('favorite.delete', $id) }}" class="position-absolute"
                                                     style="top: 10px; right:10px;">
                                                     <i class="bi bi-x-circle-fill text-black fs-3"></i>
                                                 </a>
