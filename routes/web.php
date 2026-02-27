@@ -84,8 +84,8 @@ Route::middleware('auth')->group(function () {
     Route::post('profile/update', [CustomerProfileController::class, 'update'])->name('profile.update');
 
     // ----------------------------- Favorite Page ---------------------------------//
-    Route::post('add-to-favorite/{id}', [FavoriteController::class, 'addtoFavorite'])->name('add_to_favorite');
-    Route::get('favorite-remove/{id}', [FavoriteController::class, 'removeFavoriteProduct'])->name('favorite.remove');
+    Route::post('add-to-favorite/{id}', [FavoriteController::class, 'add'])->name('favorite.add');
+    Route::get('favorite-remove/{id}', [FavoriteController::class, 'delete'])->name('favorite.delete');
 
      // ----------------------------- Checkout Page ---------------------------------//
     Route::get('checkout', [CheckoutController::class, 'checkout'])->name('checkout');

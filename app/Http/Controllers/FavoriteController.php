@@ -6,12 +6,7 @@ use App\Models\Product;
 
 class FavoriteController extends Controller
 {
-    public function favorite()
-    {
-        return view('customer.profile.profile-info', compact('favorite'));
-    }
-
-    public function addtoFavorite($id)
+    public function store($id)
     {
         $product = Product::findOrFail($id);
         $favorite = session()->get('favorite', []);
@@ -35,7 +30,7 @@ class FavoriteController extends Controller
         return redirect()->back()->with('success', 'Added to favorite');
     }
 
-    public function removeFavoriteProduct($id)
+    public function delete($id)
     {
         $favorite = session()->get('favorite', []);
         if (isset($favorite[$id])) {
