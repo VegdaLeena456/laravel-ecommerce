@@ -10,6 +10,7 @@ use App\Http\Controllers\CustomerProductController;
 use App\Http\Controllers\CustomerProfileController;
 use App\Http\Controllers\FavoriteController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Session;
 
 Route::get('/', function () {
     return redirect('/products');
@@ -92,3 +93,9 @@ Route::middleware('auth')->group(function () {
     Route::post('checkout/place-order', [CheckoutController::class, 'placeOrder'])->name('place-order');
 
 });
+
+Route::get('change-language/{lang}', function ($lang) {
+    Session::put('local', $lang);
+
+    return redirect()->back();
+})->name('change-language');

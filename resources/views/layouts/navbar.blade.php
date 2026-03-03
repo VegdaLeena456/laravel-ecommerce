@@ -31,6 +31,7 @@
                     </div>
                     <a href=" {{ route('login') }}" class="btn btn-primary w-50 ms-4 p-1 fs-5">Login</a>
 
+
                 </div>
 
             @endguest
@@ -80,6 +81,26 @@
                             </li>
                         </ul>
                     </li>
+
+
+                    <?php 
+                    $languageName  = [
+                        'en' => 'English',
+                        'hi' => 'Hindi'
+                    ];
+                    $currentLanguage = session('local', 'en');
+                    ?>
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                          {{ $languageName[$currentLanguage] ?? 'English' }}
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item {{ $currentLanguage == 'en' ? 'active' : '' }} " href=" {{ route('change-language', 'en') }} ">English</a></li>
+                            <li><a class="dropdown-item {{ $currentLanguage == 'en' ? 'active' : '' }} " href=" {{ route('change-language', 'hi') }} ">Hindi</a></li>
+                        </ul>
+                    </div>
+
                 </ul>
             @endauth
         </div>

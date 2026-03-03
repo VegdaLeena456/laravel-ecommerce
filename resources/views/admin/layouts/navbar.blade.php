@@ -25,7 +25,7 @@
                                 @csrf
                                 <button type="submit" class="dropdown-item">
                                     <i class="bi bi-box-arrow-right me-3 fs-5"></i>
-                                    Logout
+                                    {{ __('auth.logout') }}
                                 </button>
                             </form>
                         </li>

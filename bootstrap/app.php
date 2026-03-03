@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Middleware\LanguageMiddleware;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
@@ -15,6 +16,10 @@ return Application::configure(basePath: dirname(__DIR__))
             'admin' => \App\Http\Middleware\AdminMiddleware::class,
         ]);
     })
+
+     ->withMiddleware(function (Middleware $middleware) {
+        $middleware->web(append:[LanguageMiddleware::class]);
+     })
 
     ->withExceptions(function (Exceptions $exceptions): void {
         //

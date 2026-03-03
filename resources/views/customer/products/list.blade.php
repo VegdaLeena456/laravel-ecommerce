@@ -24,7 +24,7 @@
         <div class="container-fluid">
             <div class="row px-md-5 px-3">
                 <div class="col-12 d-flex align-items-center justify-content-between mt-md-5 my-4">
-                    <h3 class="title">Product</h3>
+                    <h3 class="title"> {{ __('message.product') }} </h3>
                 </div>
             </div>
         </div>

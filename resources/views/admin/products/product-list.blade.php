@@ -74,8 +74,7 @@
                                         aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    Are you sure you want to delete this Product? This action cannot be
-                                    undone.
+                                    Are you sure you want to delete this Product? 
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
