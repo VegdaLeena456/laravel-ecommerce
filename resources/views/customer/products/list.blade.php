@@ -65,19 +65,18 @@
                             <div class="card-body">
                                 <h4 class="card-title mb-3"> {{ $product->name }} </h4>
                                 <h3 class="card-title mb-3"> ${{ $product->price }} </h3>
-                                <h6 class="card-title mb-3 text-muted"> Category: {{ $product->type }} </h6>
+                                <h6 class="card-title mb-3 text-muted">{{ __('message.category') }} : {{ $product->type }} </h6>
                                 <div class="row">
                                     <div class="col-6">
                                         <form action=" {{ route('add-to-cart', $product->id) }} " method="post">
                                             @csrf
                                             <button type="submit" class="btn btn-primary my-3 p-2 w-100"
-                                                style="font-size: 18px">Add to cart</button>
+                                                style="font-size: 18px"> {{ __('message.add_to_cart') }}</button>
                                         </form>
                                     </div>
                                     <div class="col-6">
                                         <a href=" {{ route('checkout') }} " class="btn btn-primary my-3 p-2 w-100"
-                                            style="font-size: 18px">Buy
-                                            Now</a>
+                                            style="font-size: 18px"> {{ __('message.buy_now') }} </a>
                                     </div>
                                 </div>
                             </div>

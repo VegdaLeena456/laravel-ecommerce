@@ -5,8 +5,8 @@
 
         <div class="row px-md-5 my-4 justify-content-center">
             <div class="col-12 d-flex justify-content-between">
-                <h4>Customer Profile</h4>
-                <a href=" {{ route('profile.edit') }} " class="btn btn-primary">+ Edit Profile</a>
+                <h4> {{ __('message.customer_profile') }} </h4>
+                <a href=" {{ route('profile.edit') }} " class="btn btn-primary">+ {{ __('message.edit_profile') }} </a>
             </div>
         </div>
 
@@ -21,7 +21,7 @@
                                     <li class="nav-item px-md-3 px-1" role="presentation">
                                         <button class="nav-link text-center w-100 active" data-bs-toggle="tab"
                                             data-bs-target="#profile" type="button">
-                                            Profile
+                                              {{ __('message.profile') }}
                                         </button>
                                     </li>
                                 </div>
@@ -30,7 +30,7 @@
                                     <li class="nav-item px-md-3 px-1" role="presentation">
                                         <button class="nav-link text-center w-100" data-bs-toggle="tab"
                                             data-bs-target="#order" type="button">
-                                            Order
+                                              {{ __('message.order') }}
                                         </button>
                                     </li>
                                 </div>
@@ -39,7 +39,7 @@
                                     <li class="nav-itempx-md-3 px-1" role="presentation">
                                         <button class="nav-link text-center w-100" data-bs-toggle="tab"
                                             data-bs-target="#favorites" type="button">
-                                            Favorites
+                                              {{ __('message.favorites') }}
                                         </button>
                                     </li>
                                 </div>
@@ -60,37 +60,37 @@
                                             </div>
 
                                             <div class="my-3 mx-md-3">
-                                                <label for="name" class="form-label">Name</label>
+                                                <label for="name" class="form-label">  {{ __('message.name') }}</label>
                                                 <input class="form-control" name="name" type="text"
                                                     value=" {{ auth()->user()->name }} " aria-label="Disabled input example"
                                                     disabled readonly>
                                             </div>
                                             <div class="my-3 mx-md-3">
-                                                <label for="email" class="form-label">Email</label>
+                                                <label for="email" class="form-label">  {{ __('message.email') }}</label>
                                                 <input class="form-control" name="email" type="email"
                                                     value=" {{ auth()->user()->email }} "
                                                     aria-label="Disabled input example" disabled readonly>
                                             </div>
                                             <div class="my-3 mx-md-3">
-                                                <label for="number" class="form-label ">Contact Number</label>  
+                                                <label for="number" class="form-label ">  {{ __('message.contact_number') }}</label>  
                                                 <input class="form-control" type="text"
                                                     value=" {{ auth()->user()->number }} "
                                                     aria-label="Disabled input example" disabled readonly>
                                             </div>
                                             <div class="my-3 mx-md-3">
-                                                <label for="address" class="form-label ">Address</label>
+                                                <label for="address" class="form-label ">  {{ __('message.address') }}</label>
                                                 <textarea name="address" class="form-control" cols="30" rows="5" disabled readonly> {{ auth()->user()->address }} </textarea>
                                             </div>
 
                                             <div class="my-3 mx-md-3">
-                                                <label for="name" class="form-label ">Country</label>
+                                                <label for="name" class="form-label ">  {{ __('message.country') }}</label>
                                                 <input class="form-control" type="text"
                                                     value=" {{ auth()->user()->country }} "
                                                     aria-label="Disabled input example" disabled readonly>
                                             </div>
 
                                             <div class="my-3 mx-md-3">
-                                                <label for="name" class="form-label">Gender</label>
+                                                <label for="name" class="form-label">  {{ __('message.gender') }}</label>
                                                 <div class="row">
                                                     <div class="col-11">
                                                         <div class="form-check form-check-inline">
@@ -98,7 +98,7 @@
                                                                 id="male" value="male"
                                                                 {{ auth()->user()->gender == 'male' ? 'checked' : '' }}
                                                                 disabled>
-                                                            <label class="form-check-label" for="male">Male</label>
+                                                            <label class="form-check-label" for="male">  {{ __('message.male') }}</label>
                                                         </div>
 
                                                         <div class="form-check form-check-inline">
@@ -106,7 +106,7 @@
                                                                 id="female" value="female"
                                                                 {{ auth()->user()->gender == 'female' ? 'checked' : '' }}
                                                                 disabled>
-                                                            <label class="form-check-label" for="female">Female</label>
+                                                            <label class="form-check-label" for="female">  {{ __('message.female') }}</label>
                                                         </div>
 
                                                         <div class="form-check form-check-inline">
@@ -114,7 +114,7 @@
                                                                 id="other" value="other"
                                                                 {{ auth()->user()->gender == 'other' ? 'checked' : '' }}
                                                                 disabled>
-                                                            <label class="form-check-label" for="other">Other</label>
+                                                            <label class="form-check-label" for="other">  {{ __('message.other') }}</label>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -129,10 +129,10 @@
                                     @if ($orders->isEmpty())
                                         <div class="text-center py-5">
                                             <i class="bi bi-cart fs-1"></i>
-                                            <h4>No Orders Yet</h4>
-                                            <p>Start shopping to place your first order!</p>
+                                            <h4>  {{ __('message.no_order_yet') }}</h4>
+                                            <p>  {{ __('message.customer_profile') }}</p>
                                             <a href="{{ route('product-list') }}" class="btn btn-primary">
-                                                Shop Now
+                                                 {{ __('message.shop_now') }}
                                             </a>
                                         </div>
                                     @else
@@ -152,10 +152,10 @@
                                                                 <p class="card-text fs-5">
                                                                     ${{ number_format($item->price * $item->quntity, 2) }}
                                                                 </p>
-                                                                <p class="card-text"> <strong>Category:</strong>
+                                                                <p class="card-text"> <strong>{{ __('message.category') }}:</strong>
                                                                     {{ $item->product->type }} </p>
                                                                 <a href=" {{ route('products.details', $item->product->id) }}  "
-                                                                    class="btn btn-primary">More Info</a>
+                                                                    class="btn btn-primary">{{ __('message.more_info') }}</a>
                                                                 </p>
                                                             </div>
                                                         </div>
@@ -190,12 +190,12 @@
                                                             <h5 class="card-title">{{ $item['name'] }}</h5>
                                                             <p class="card-text fs-5">$ {{ $item['price'] }}</p>
                                                             <p class="card-text">
-                                                                <strong>Category:</strong> {{ $item['type'] }}
+                                                                <strong>  {{ __('message.category') }}: </strong> {{ $item['type'] }}
                                                             </p>
 
                                                             <a href="{{ route('products.details', $id) }}"
                                                                 class="btn btn-primary">
-                                                                More Info
+                                                                  {{ __('message.more_info') }}
                                                             </a>
                                                         </div>
                                                     </div>
@@ -205,10 +205,10 @@
                                     @else
                                         <div class="text-center py-5">
                                             <i class="bi bi-heart fs-1 text-muted"></i>
-                                            <h4 class="mt-3">Your Wishlist is Empty</h4>
-                                            <p class="text-muted">Looks like you haven't added anything yet.</p>
+                                            <h4 class="mt-3"> {{ __('message.your_wishlist_is_empty') }}</h4>
+                                            <p class="text-muted">  {{ __('message.looks_like_you_have_not_added_anything_yet') }}</p>
                                             <a href="{{ route('product-list') }}" class="btn btn-primary mt-2">
-                                                Start Shopping
+                                                  {{ __('message.start_shopping') }}
                                             </a>
                                         </div>
                                     @endif

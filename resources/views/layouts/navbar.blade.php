@@ -29,7 +29,7 @@
                             </i>
                         </a>
                     </div>
-                    <a href=" {{ route('login') }}" class="btn btn-primary w-50 ms-4 p-1 fs-5">Login</a>
+                    <a href=" {{ route('login') }}" class="btn btn-primary w-50 ms-4 p-1 fs-5"> {{ __('message.login') }} </a>
 
 
                 </div>
@@ -69,13 +69,12 @@
                         <ul class="dropdown-menu dropdown-menu-end">
                             <li>
                                 <a href=" {{ route('profile') }} " class=" dropdown-item"><i
-                                        class="bi bi-person-fill me-3 fs-5"></i>My
-                                    Profile</a>
+                                        class="bi bi-person-fill me-3 fs-5"></i>  {{ __('message.my_profile') }} </a>
                                 <form method="POST" action="{{ route('logout') }}">
                                     @csrf
                                     <button type="submit" class="dropdown-item">
                                         <i class="bi bi-box-arrow-right me-3 fs-5"></i>
-                                        Logout
+                                         {{ __('auth.logout') }}
                                     </button>
                                 </form>
                             </li>
@@ -91,7 +90,7 @@
                     $currentLanguage = session('local', 'en');
                     ?>
                     <div class="dropdown">
-                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                        <button class="btn btn-light border dropdown-toggle" type="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
                           {{ $languageName[$currentLanguage] ?? 'English' }}
                         </button>

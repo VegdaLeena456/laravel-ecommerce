@@ -24,8 +24,8 @@
             <div class="col-12">
                 <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item fs-5"><a href="{{ route('product-list') }}">Products</a></li>
-                        <li class="breadcrumb-item active fs-5" aria-current="page">Product Detail</li>
+                        <li class="breadcrumb-item fs-5"><a href="{{ route('product-list') }}"> {{ __('message.product') }} </a></li>
+                        <li class="breadcrumb-item active fs-5" aria-current="page"> {{ __('message.product_details') }}</li>
                     </ol>
                 </nav>
             </div>
@@ -40,12 +40,11 @@
                     <div class="col-6">
                         <form action=" {{ route('add-to-cart', $product->id) }} " method="post">
                             @csrf
-                            <button type="submit" class="btn btn-primary my-3 p-2 w-100" style="font-size: 18px">Add to
-                                cart</button>
+                            <button type="submit" class="btn btn-primary my-3 p-2 w-100" style="font-size: 18px">{{ __('message.add_to_cart') }}</button>
                         </form>
                     </div>
                     <div class="col-6">
-                        <a href=" {{ route('checkout') }} " class="btn btn-warning w-100 py-2">Buy Now</a>
+                        <a href=" {{ route('checkout') }} " class="btn btn-warning w-100 py-2">{{ __('message.buy_now') }}</a>
                     </div>
                 </div>
             </div>
@@ -54,8 +53,8 @@
             <div class="col-md-8 col-12 p-lg-3 py-3">
                 <div class="details">
                     <h2> {{ $product->name }} </h2>
-                    <h3> Price: ${{ $product->price }} </h3>
-                    <p class="fs-5 text-muted"> Category: {{ $product->type }} </p>
+                    <h3>  {{ __('message.Price') }}: ${{ $product->price }} </h3>
+                    <p class="fs-5 text-muted">  {{ __('message.category') }}: {{ $product->type }} </p>
                     <p class="text-muted pe-lg-5 me-lg-5"> {{ $product->description }} </p>
                 </div>
             </div>
@@ -77,7 +76,7 @@
         <!--------- Product Gallery ----------->
         @if ($product->gallery)
             <div class="row mt-4 px-lg-5 px-3 mx-lg-5">
-                <h2 class="mb-3 ">Gallery</h2>
+                <h2 class="mb-3 "> {{ __('message.gallery') }}</h2>
                 @foreach ($product->gallery as $image)
                     <div class="col-lg-3 col-md-6 col-12">
                         <div class="gallery py-3">

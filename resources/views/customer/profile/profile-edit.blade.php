@@ -6,8 +6,8 @@
             <div class="col-12">
                 <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item fs-5"><a href="{{ route('profile') }}">Customer Profile</a></li>
-                        <li class="breadcrumb-item active fs-5" aria-current="page">Edit</li>
+                        <li class="breadcrumb-item fs-5"><a href="{{ route('profile') }}">{{ __('message.customer_profile') }} </a></li>
+                        <li class="breadcrumb-item active fs-5" aria-current="page"> {{ __('message.edit') }}</li>
                     </ol>
                 </nav>
             </div>
@@ -39,7 +39,7 @@
                             </div>
 
                             <div class="my-3">
-                                <label for="name" class="form-label" >Name</label>
+                                <label for="name" class="form-label" > {{ __('message.name') }}</label>
                                 <input type="text" name="name" value="{{ $user->name }}" class="form-control" placeholder="Enter your name">
                                 @error('name')
                                     <span class="text-danger"> {{ $message }} </span>
@@ -47,7 +47,7 @@
                             </div>
 
                             <div class="my-3">
-                                <label for="email" class="form-lable">Email</label>
+                                <label for="email" class="form-lable">{{ __('message.email') }}</label>
                                 <input type="email" name="email" id="email" value="{{ $user->email }}" placeholder="Enter yout email"
                                     class="form-control">
                                 @error('email')
@@ -56,7 +56,7 @@
                             </div>
 
                             <div class="my-3">
-                                <label for="number" class="form-label">Contact Number</label>
+                                <label for="number" class="form-label"> {{ __('message.contact_number') }}</label>
                                 <input type="text" name="number" value="{{ $user->number }}" id="number" class="form-control">
                                 @error('number')
                                     <span class="text-danger"> {{ $message }} </span>
@@ -64,7 +64,7 @@
                             </div>
 
                             <div class="my-3">
-                                <label for="address" class="form-label">Address</label>
+                                <label for="address" class="form-label">{{ __('message.address') }}</label>
                                 <textarea name="address" id="" cols="30" rows="5" class="form-control"> {{ $user->address }} </textarea>
                                 @error('address')
                                     <span class="text-danger"> {{ $message }} </span>
@@ -72,12 +72,12 @@
                             </div>
 
                             <div class="my-3">
-                                <label for="country" class="form-label">Country</label>
+                                <label for="country" class="form-label">{{ __('message.country') }}</label>
                                 <select name="country" placeholder="Enter your Country" id="country" class="form-select">
-                                    <option value="India" {{ $user->country == 'India' ? 'selected' : '' }}>India</option>
-                                    <option value="Canada "  {{ $user->country == 'Canada' ? 'selected' : '' }}>Canada </option>
-                                    <option value="Australia "  {{ $user->country == 'Australia' ? 'selected' : '' }}>Australia </option>
-                                    <option value="United Kingdom "  {{ $user->country == 'United Kingdom ' ? 'selected' : '' }}>United Kingdom </option>
+                                    <option value="India" {{ $user->country == 'India' ? 'selected' : '' }}> {{ __('message.india') }}</option>
+                                    <option value="Canada "  {{ $user->country == 'Canada' ? 'selected' : '' }}> {{ __('message.canada') }}</option>
+                                    <option value="Australia "  {{ $user->country == 'Australia' ? 'selected' : '' }}> {{ __('message.australia') }}</option>
+                                    <option value="United Kingdom "  {{ $user->country == 'United Kingdom ' ? 'selected' : '' }}> {{ __('message.uk') }}</option>
                                 </select>
                                 @error('country')
                                     <span class="text-danger"> {{ $message }} </span>
@@ -85,25 +85,25 @@
                             </div>
 
                             <div class="my-3">
-                                <label for="gender" class="form-label">Gender</label>
+                                <label for="gender" class="form-label"> {{ __('message.gender') }}</label>
                                 <div class="row">
                                     <div class="col-11">
                                         <div class="form-check form-check-inline">
                                             <input class="form-check-input" type="radio" name="gender" id="male"
                                                 value="male" {{ $user->gender == 'male' ? 'checked' : '' }}>
-                                            <label class="form-check-label" for="male">Male</label>
+                                            <label class="form-check-label" for="male"> {{ __('message.male') }}</label>
                                         </div>
 
                                         <div class="form-check form-check-inline">
                                             <input class="form-check-input" type="radio" name="gender" id="female"
                                                 value="female" {{ $user->gender == 'female' ? 'checked' : '' }}>
-                                            <label class="form-check-label" for="female">Female</label>
+                                            <label class="form-check-label" for="female"> {{ __('message.female') }}</label>
                                         </div>
 
                                         <div class="form-check form-check-inline">
                                             <input class="form-check-input" type="radio" name="gender" id="other"
                                                 value="other" {{ $user->gender == 'other' ? 'checked' : '' }}>
-                                            <label class="form-check-label" for="other">Other</label>
+                                            <label class="form-check-label" for="other"> {{ __('message.other') }}</label>
                                         </div>
                                     </div>
                                 </div>
@@ -113,7 +113,7 @@
                             </div>
 
                             <div class="text-center">
-                                <button type="submit" class="btn btn-primary px-5  my-4  ">Submit</button>
+                                <button type="submit" class="btn btn-primary px-5  my-4  "> {{ __('message.submit') }}</button>
                             </div>
                         </form>
                     </div>

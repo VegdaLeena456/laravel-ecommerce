@@ -21,7 +21,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-12 px-md-5 px-3">
-                <h3 class="px-lg-5 px-md-3 mt-4">Cart Product</h3>
+                <h3 class="px-lg-5 px-md-3 mt-4"> {{ __('message.cart_product') }} </h3>
             </div>
         </div>
     </div>
@@ -35,10 +35,10 @@
                         <div class="card-body">
                             <div class="text-center py-5">
                                 <i class="bi bi-cart fs-1 "></i>
-                                <h4 class="mt-3">Your Cart is Empty</h4>
-                                <p class="text-muted">Looks like you haven't added anything yet.</p>
+                                <h4 class="mt-3"> {{ __('message.cart_empty') }}</h4>
+                                <p class="text-muted"> {{ __('message.cart_empty_para') }}</p>
                                 <a href="{{ route('product-list') }}" class="btn btn-primary mt-2">
-                                    Start Shopping
+                                    {{ __('message.start_shopping') }}
                                 </a>
                             </div>
                         </div>
@@ -49,7 +49,7 @@
                     @foreach ($cart as $id => $item)
                         <div class="card mb-3 position-relative">
                             <div class="total position-absolute" style="top: 20px; right:20px;">
-                                <p class="m-0 text-end">Sub-total</p>
+                                <p class="m-0 text-end">{{ __('message.sub_total') }}</p>
                                 <h3 class="fw-bold"> ${{ $item['subtotal'] }} </h3>
                             </div>
                             <div class="row g-3">
@@ -61,7 +61,7 @@
                                     <div class="card-body text-center text-md-start">
                                         <h5 class="card-title"> {{ $item['name'] }} </h5>
                                         <p class="card-text fs-5"> $ {{ $item['price'] }} </p>
-                                        <p class="card-text"> <strong>Category:</strong> {{ $item['type'] }} </p>
+                                        <p class="card-text"> <strong> {{ __('message.category') }}:</strong> {{ $item['type'] }} </p>
 
                                         <form action="{{ route('cart.update', $id) }}" method="POST" class="quantity-form">
                                             @csrf
@@ -75,8 +75,7 @@
                                                 <button type="button" class="btn  increase">+</button>
                                             </div>
                                         </form>
-                                        <a href=" {{ route('cart.remove', $id) }} " class="btn btn-secondary">Remove
-                                            Item</a>
+                                        <a href=" {{ route('cart.remove', $id) }} " class="btn btn-secondary">{{ __('message.remove_item') }}</a>
                                     </div>
                                 </div>
                             </div>
@@ -87,31 +86,31 @@
                 <div class="col-md-4">
                     <div class="card">
                         <div class="card-header">
-                            <h1>Cart Total</h1>
+                            <h1> {{ __('message.cart_total') }}</h1>
                         </div>
                         <div class="card-body px-4" style="font-size: 18px">
                             <form action="">
-                                <label  class="form-label d-block">Add Coupon</label>
+                                <label  class="form-label d-block"> {{ __('message.add_coupon') }}</label>
                                 <div class="mb-3 d-flex gap-4">
                                     <input type="text" name="coupon" class="form-control">
-                                    <button type="button" class="btn btn-secondary">Apply</button>
+                                    <button type="button" class="btn btn-secondary"> {{ __('message.apply') }}</button>
                                 </div>
                             </form>
                             <hr>
                             <table class="table table-borderless">
                                 <tr>
-                                    <td>Discount</td>
+                                    <td> {{ __('message.discount') }}</td>
                                     <td class=" text-end ">-</td>
                                 </tr>
                                 <tr>
-                                    <td>Estimated Total</td>
+                                    <td>{{ __('message.estimated_total') }}</td>
                                     <td class="fw-bold text-end"> $ {{ $grandTotal }} </td>
                                 </tr>
                             </table>
 
                             <div class="text-center py-4">
                                 <a href=" {{ route('checkout') }} " class="btn btn-dark px-5 py-2 fs-5">Processed to
-                                    Checkout</a>
+                                    Checkout {{ __('message.processed_to_checkout') }}</a>
                             </div>
                         </div>
                     </div>

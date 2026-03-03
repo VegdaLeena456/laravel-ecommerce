@@ -5,7 +5,7 @@
 <section class="checkout">
     <div class="container-fluid px-lg-5 px-3">
         
-        <h3 class="section-title py-3 px-3">Checkout</h3>
+        <h3 class="section-title py-3 px-3">  {{ __('message.checkout') }}</h3>
         <form action="{{ route('place-order') }}" method="POST">
             @csrf
 
@@ -17,11 +17,11 @@
                     <div class="card mx-lg-5 mb-5">
                         <div class="card-body">
 
-                            <h4 class="mb-4">Billing Details</h4>
+                            <h4 class="mb-4">{{ __('message.billing_details') }}</h4>
 
                             <div class="row mb-3">
                                 <div class="col-6">
-                                    <label class="form-label required">First Name</label>
+                                    <label class="form-label required"> {{ __('message.first_name') }}</label>
                                     <input type="text" name="first_name" class="form-control">
                                     @error('first_name')
                                         <span class="text-danger">{{ $message }}</span>
@@ -29,7 +29,7 @@
                                 </div>
 
                                 <div class="col-6">
-                                    <label class="form-label required">Last Name</label>
+                                    <label class="form-label required">{{ __('message.last_name') }}</label>
                                     <input type="text" name="last_name" class="form-control">
                                     @error('last_name')
                                         <span class="text-danger">{{ $message }}</span>
@@ -38,11 +38,11 @@
                             </div>
 
                             <div class="mb-3">
-                                <label class="form-label required">Country</label>
+                                <label class="form-label required"> {{ __('message.country') }}</label>
                                 <select name="country" class="form-select">
-                                    <option value="">Select Country</option>
-                                    <option value="India">India</option>
-                                    <option value="Canada">Canada</option>
+                                    <option value=""> {{ __('message.select_country') }}</option>
+                                    <option value="India">{{ __('message.india') }}</option>
+                                    <option value="Canada"> {{ __('message.canada') }}</option>
                                 </select>
                                 @error('country')
                                     <span class="text-danger">{{ $message }}</span>
@@ -50,7 +50,7 @@
                             </div>
 
                             <div class="mb-3">
-                                <label class="form-label required">Address</label>
+                                <label class="form-label required"> {{ __('message.address') }}</label>
                                 <input type="text" name="address" class="form-control">
                                 @error('address')
                                     <span class="text-danger">{{ $message }}</span>
@@ -58,7 +58,7 @@
                             </div>
 
                             <div class="mb-3">
-                                <label class="form-label required">City</label>
+                                <label class="form-label required"> {{ __('message.city') }}</label>
                                 <input type="text" name="city" class="form-control">
                                 @error('city')
                                     <span class="text-danger">{{ $message }}</span>
@@ -66,7 +66,7 @@
                             </div>
 
                             <div class="mb-3">
-                                <label class="form-label required">State</label>
+                                <label class="form-label required"> {{ __('message.state') }}</label>
                                 <input type="text" name="state" class="form-control">
                                 @error('state')
                                     <span class="text-danger">{{ $message }}</span>
@@ -74,7 +74,7 @@
                             </div>
 
                             <div class="mb-3">
-                                <label class="form-label required">Zip</label>
+                                <label class="form-label required"> {{ __('message.zip') }}</label>
                                 <input type="text" name="zip" class="form-control">
                                 @error('zip')
                                     <span class="text-danger">{{ $message }}</span>
@@ -82,7 +82,7 @@
                             </div>
 
                             <div class="mb-3">
-                                <label class="form-label required">Phone</label>
+                                <label class="form-label required"> {{ __('message.phone') }}</label>
                                 <input type="text" name="phone" class="form-control">
                                 @error('phone')
                                     <span class="text-danger">{{ $message }}</span>
@@ -90,7 +90,7 @@
                             </div>
 
                             <div class="mb-3">
-                                <label class="form-label required">Email</label>
+                                <label class="form-label required"> {{ __('message.email') }}</label>
                                 <input type="email" name="email" class="form-control">
                                 @error('email')
                                     <span class="text-danger">{{ $message }}</span>
@@ -106,13 +106,13 @@
                     <div class="card">
                         <div class="card-body">
 
-                            <h4 class="mb-4">Order Summary</h4>
+                            <h4 class="mb-4"> {{ __('message.order_summary') }}</h4>
 
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>Product</th>
-                                        <th>Subtotal</th>
+                                        <th> {{ __('message.product') }}</th>
+                                        <th> {{ __('message.subtotal') }}</th>
                                     </tr>
                                 </thead>
 
@@ -139,7 +139,7 @@
 
                                 <tfoot>
                                     <tr class="fw-bold">
-                                        <td>Total</td>
+                                        <td> {{ __('message.total') }}</td>
                                         <td>₹{{ $grandTotal }}</td>
                                     </tr>
                                 </tfoot>
@@ -148,14 +148,14 @@
                             <!-- Payment -->
                             <div class="mt-3">
                                 <input type="radio" name="payment_method" value="cod" checked>
-                                Cash on Delivery
+                               {{ __('message.cash_on_delivery') }}
                                 <div class="text-muted small">
-                                    Pay with cash upon delivery.
+                                    {{ __('message.pay_with_cash_upon_delivery') }}
                                 </div>
                             </div>
 
                             <button type="submit" class="btn btn-dark w-100 mt-4 py-2">
-                                Place Order
+                               {{ __('message.place_order') }}
                             </button>
 
                         </div>
